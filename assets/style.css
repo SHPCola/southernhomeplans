@@ -1,0 +1,119 @@
+/* Southern Home Plans — starter styles */
+:root{
+  --bg: #fffdf9;
+  --ink: #1f2937;
+  --muted:#6b7280;
+  --brand:#2b6a5a;           /* deep green */
+  --brand-2:#a97a4a;         /* warm brass */
+  --card:#ffffff;
+  --line:#e5e7eb;
+  --shadow: 0 10px 25px rgba(0,0,0,.06), 0 2px 8px rgba(0,0,0,.04);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+h1,h2,h3,h4{
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  margin:0 0 .5rem 0;
+  line-height:1.2;
+  color:#0f172a;
+}
+
+h1{font-size:clamp(2rem, 3vw + 1rem, 3.2rem)}
+h2{font-size:clamp(1.6rem, 2vw + .8rem, 2.2rem)}
+h3{font-size:1.35rem}
+
+p{margin:0 0 1rem 0}
+.muted{color:var(--muted)}
+.tiny{font-size:.85rem}
+
+.container{max-width:1100px;margin:0 auto;padding:0 1rem}
+.container.narrow{max-width:760px}
+
+.site-header{
+  position:sticky;top:0;background:rgba(255,255,255,.8);backdrop-filter:saturate(120%) blur(8px);
+  border-bottom:1px solid var(--line); z-index:50
+}
+.header-grid{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1rem;padding:.8rem 0}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:inherit;font-weight:600}
+.logo{width:34px;height:34px}
+.site-nav{display:flex;gap:1rem;align-items:center}
+.site-nav a{color:var(--ink);text-decoration:none;font-weight:500}
+.site-nav .cta{padding:.5rem .8rem;border:1px solid var(--brand);border-radius:999px}
+.site-nav .cta:hover{background:var(--brand);color:#fff}
+#nav-toggle{display:none}
+.burger{display:none}
+
+@media (max-width:800px){
+  .site-nav{display:none}
+  #nav-toggle:checked ~ .site-nav{display:flex;position:absolute;right:1rem;top:58px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:.6rem;box-shadow:var(--shadow);flex-direction:column}
+  .burger{display:inline-flex;flex-direction:column;gap:5px;cursor:pointer}
+  .burger span{display:block;width:24px;height:2px;background:#111}
+}
+
+.hero{
+  position:relative;
+  padding: clamp(2rem, 6vw, 6rem) 0;
+  background:
+    radial-gradient(1200px 400px at 80% -10%, #c2d8cf33, transparent),
+    radial-gradient(900px 400px at -10% 10%, #f1e7d833, transparent);
+}
+.hero .sub{color:var(--brand-2)}
+.lead{font-size:1.1rem;max-width:60ch}
+.hero-actions{display:flex;gap:.8rem;margin-top:1rem}
+.btn{display:inline-block;padding:.8rem 1.1rem;border-radius:12px;text-decoration:none;font-weight:600;border:1px solid var(--line)}
+.btn.primary{background:var(--brand);color:#fff;border-color:var(--brand)}
+.btn.ghost{background:#fff;color:var(--ink)}
+.btn.small{padding:.5rem .8rem;border-radius:10px}
+
+.hero-card{
+  position:relative;margin:2rem auto 0 auto;max-width:900px;background:var(--card);
+  border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);display:grid;grid-template-columns:220px 1fr;gap:1rem;align-items:center;padding:1rem;
+}
+.plan-thumb{height:160px;border-radius:14px;background:
+  linear-gradient(130deg, #e8eee9, #f7f3ed);
+  border:1px solid var(--line);
+}
+.plan-meta h3{margin:.2rem 0 .2rem 0}
+
+@media (max-width:700px){
+  .hero-card{grid-template-columns:1fr}
+  .plan-thumb{height:140px}
+}
+
+.plans{padding:3rem 0}
+.grid{display:grid;gap:1.2rem;grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.grid{grid-template-columns:1fr}}
+.plan{
+  background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1rem;box-shadow:var(--shadow)
+}
+.thumb.placeholder{
+  height:180px;border:1px dashed #cbd5e1;border-radius:12px;display:grid;place-items:center;color:#94a3b8;
+  background:
+    repeating-linear-gradient(45deg, #f8fafc 0 6px, #f1f5f9 6px 12px);
+}
+.bullets{margin:0 0 1rem 1.1rem}
+.plan-actions{display:flex;gap:.6rem}
+
+.process{padding:2.5rem 0;background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{display:grid;gap:1rem;grid-template-columns:repeat(3,1fr)}
+.step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1rem;box-shadow:var(--shadow)}
+.num{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:999px;background:var(--brand);color:#fff;font-weight:700;margin-bottom:.6rem}
+
+.about,.contact{padding:2.5rem 0}
+
+.contact-form{display:grid;gap:.8rem}
+.contact-form label{display:grid;gap:.3rem}
+input,textarea{
+  padding:.7rem .8rem;border:1px solid var(--line);border-radius:10px;font:inherit
+}
+input:focus, textarea:focus{outline:2px solid #bfdbfe;border-color:#93c5fd}
+.site-footer{padding:2rem 0;border-top:1px solid var(--line);text-align:center;color:var(--muted)}
